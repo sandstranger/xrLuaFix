@@ -1,8 +1,6 @@
 #include "lua.hpp"
 #include "Libs.h"
-#include "export.h"
 
-#pragma comment(lib, "xrCore")
 #pragma comment(lib, "user32")
 
 int open(lua_State *L){
