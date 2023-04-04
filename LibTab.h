@@ -1,3 +1,3 @@
-#include <lua.hpp>
+#pragma once
 
-int open_table(lua_State *L);
+int open_table(lua_State* L);
