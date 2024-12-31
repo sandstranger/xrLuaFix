@@ -33,12 +33,15 @@ target_link_libraries(xrLuaFix
     xrCore
 )
 
-if (XRAY_USE_LUAJIT)
+if (ANDROID)
+    target_link_libraries(xrLuaFix PUBLIC ${LUA_LIBRARIES})
+else ()
+    if (XRAY_USE_LUAJIT)
     target_link_libraries(xrLuaFix PUBLIC xrLuaJIT)
 else()
     target_link_libraries(xrLuaFix PUBLIC Lua51)
 endif()
-
+endif ()
 
 target_precompile_headers(xrLuaFix
     PRIVATE
