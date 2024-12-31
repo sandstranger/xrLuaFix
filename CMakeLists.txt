@@ -24,7 +24,6 @@ target_include_directories(xrLuaFix
     "${CMAKE_CURRENT_SOURCE_DIR}"
 
     PRIVATE
-    "${LUA_INCLUDE_DIR}"
     "${CMAKE_CURRENT_SOURCE_DIR}/lfs/src"
     "${XRAY16_SOURCE_DIR}/src"
 )
@@ -40,12 +39,12 @@ else()
     target_link_libraries(xrLuaFix PUBLIC Lua51)
 endif()
 
-if (NOT ANDROID)
+
 target_precompile_headers(xrLuaFix
     PRIVATE
-    $<$<COMPILE_LANGUAGE:CXX>:pch.hpp>
+    pch.hpp
 )
-endif ()
+
 set_target_properties(xrLuaFix PROPERTIES
     PREFIX ""
     POSITION_INDEPENDENT_CODE ON
